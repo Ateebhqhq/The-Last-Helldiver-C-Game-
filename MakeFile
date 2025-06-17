@@ -1,0 +1,18 @@
+
+
+
+	CXX = g++
+CXXFLAGS = -Isrc/include
+LDFLAGS = -Lsrc/lib
+LDLIBS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+
+all: sfml-app
+
+sfml-app: main.o
+	$(CXX) main.o -o sfml-app $(LDFLAGS) $(LDLIBS)
+
+main.o: main.cpp
+	$(CXX) $(CXXFLAGS) -c main.cpp
+
+clean:
+	del *.o sfml-app.exe
